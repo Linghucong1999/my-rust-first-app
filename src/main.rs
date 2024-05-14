@@ -8,7 +8,13 @@ fn main() {
         println!("请输入你的猜测");
         let mut guess = String::new();
         io::stdin().read_line(&mut guess).expect("读取失败");
-        let guess: u32 = guess.trim().parse().expect("输入值转换无效");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("输入无效，请重新输入");
+                continue;
+            }
+        };
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("太小了"),
             Ordering::Greater => println!("太大了"),
