@@ -11,22 +11,39 @@ fn main() {
 
     // 函数开发
 
-    anothor_function(5, 6);
+    // anothor_function(5, 6);
+
+    // 控制流,不要过多的使用if else,可以使用match
+    let mut x = anothor_function(5, 6);
+    let array = [1, 2, 3, 4, 5, 6, 7, 89, 0];
+    for element in array {
+        let result = anothor_function(element, 1);
+        println!("{}", result);
+    }
+
+    let a = loop {
+        if x > 100000 {
+            break x;
+        } else {
+            x = anothor_function(x, 1);
+        }
+    };
+    println!("{}", a);
 }
 
-fn anothor_function(x: i64, y: i64) {
+fn anothor_function(x: i64, y: i64) -> i64 {
     let z = {
         let a = x + y;
-        let b = a * 2;
+        let b = a + 1;
         let c = five();
         five_plus(b + c)
     };
-    println!("z is {}", z);
+    z
 }
 
 fn five() -> i64 {
-    200
+    1
 }
 fn five_plus(x: i64) -> i64 {
-    x + 5
+    x + 2
 }
