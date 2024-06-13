@@ -5,7 +5,7 @@ edition = "2021"
 
 [[bin]]
 name = "my-app-rust"
-path = "src/ownership.rs"
+path = "src/struct.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
